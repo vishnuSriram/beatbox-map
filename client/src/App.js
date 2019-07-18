@@ -5,20 +5,20 @@ class App extends Component {
   // Initialize state
   state = { passwords: [] }
 
-  // Fetch passwords after first mount
+  // Fetch beatboxers after first mount
   componentDidMount() {
-    this.getPasswords();
+    this.getBeatboxers();
   }
 
   getPasswords = () => {
-    // Get the passwords and store them in state
-    fetch('/api/passwords')
+    // Get beatboxers and store them in state
+    fetch('/api/beatboxers')
       .then(res => res.json())
-      .then(passwords => this.setState({ passwords }));
+      .then(beatboxers => this.setState({ beatboxers }));
   }
 
   render() {
-    const { passwords } = this.state;
+    const { beatboxers } = this.state;
 
     return (
       <div className="App">

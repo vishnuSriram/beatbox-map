@@ -6,6 +6,19 @@ const client = new Client({
 
 client.connect();
 
+// Find most common city for a beatboxer
+const getCityMode = (request, response) => {
+    client.query('SELECT MODE() WITHIN GROUP (ORDER BY city) AS city_mode FROM beatboxers;', function(err, res) {
+      if (err) throw err;
+        for (let row of res.rows) {
+          // console.log(JSON.stringify(row));
+          response.status(200).JSON.stringify(row);
+        }
+      client.end();
+    });
+  }
+
+// Find most common state for a beatboxer
 const getStateMode = (request, response) => {
   client.query('SELECT MODE() WITHIN GROUP (ORDER BY state) AS state_mode FROM beatboxers;', function(err, res) {
     if (err) throw err;
@@ -31,5 +44,6 @@ const getAllBeatboxers = (request, response) => {
 // Exports all query results
 module.exports = {
     getAllBeatboxers,
-    getStateMode
+    getStateMode,
+    getCityMode
 }
