@@ -1,5 +1,8 @@
 {
   "name": "beatbox-map",
+  "engines": {
+    "node": "12.6.0"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
