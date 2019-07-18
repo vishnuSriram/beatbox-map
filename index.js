@@ -1,14 +1,15 @@
 const express = require('express');
 const path = require('path');
-// const generatePassword = require('password-generator');
+const db = require('./queries');
 const app = express();
-const db = require('queries.js');
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Put all API endpoints under '/api'
 app.get('/api/beatboxers', db.getAllBeatboxers);
+app.get('/api/citymode', db.getCityMode);
+app.get('/api/statemode', db.getStateMode);
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
