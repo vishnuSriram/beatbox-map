@@ -1,23 +1,18 @@
-var express = require('express');
-var app = express();
-const db = require('./queries')
+const { Client } = require('pg');
 
-// set the port of our application
-// process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
-
-// make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/public'));
-
-// set the home page route
-app.get('/', function(req, res) {
-    // React renders automatically 
-    res.render('src/index');
+const client = new Client({
+  connectionString: process.env.DATABASE_URL
 });
 
-app.get('/statemode', db.getStateMode);
+client.connect();
 
-app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + port);
-});
-
+const getStateMode = (request, response) => {
+  client.query('SELECT MODE() WITHIN GROUP (ORDER BY state) AS state_mode FROM beatboxers;', function(err, res) {
+    if (err) throw err;
+      for (let row of res.rows) {
+        // console.log(JSON.stringify(row));
+        response.status(200).JSON.stringify(row);
+      }
+    client.end();
+  });
+}
