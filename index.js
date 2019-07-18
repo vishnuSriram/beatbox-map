@@ -1,15 +1,14 @@
 const express = require('express');
 const path = require('path');
-// const generatePassword = require('password-generator');
+const generatePassword = require('password-generator');
+
 const app = express();
-const db = require('queries')
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Put all API endpoints under '/api'
-app.get('/api/beatboxers', (req, res) => {
-  /*
+app.get('/api/passwords', (req, res) => {
   const count = 5;
 
   // Generate some passwords
@@ -21,7 +20,6 @@ app.get('/api/beatboxers', (req, res) => {
   res.json(passwords);
 
   console.log(`Sent ${count} passwords`);
-  */
 });
 
 // The "catchall" handler: for any request that doesn't
@@ -33,4 +31,4 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || 5000;
 app.listen(port);
 
-console.log(`Beatbox map listening on ${port}`);
+console.log(`Password generator listening on ${port}`);
