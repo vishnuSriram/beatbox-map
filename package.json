@@ -1,7 +1,8 @@
 {
   "name": "beatbox-map",
   "engines": {
-    "node": "12.6.0"
+    "node": "12.6.0",
+    "yarn": "1.17.3"
   },
   "version": "1.0.0",
   "main": "index.js",
