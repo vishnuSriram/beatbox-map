@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
 const generatePassword = require('password-generator');
-
 const app = express();
+const db = require('queries.js');
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
