@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/public'));
 // set the home page route
 app.get('/', function(req, res) {
     // React renders automatically 
-    res.render('index');
+    res.render('src/index');
 });
 
 app.get('/statemode', db.getStateMode);
