@@ -27,7 +27,7 @@ export default class BeatboxersTable extends React.Component {
         </tr>
       });
     return (
-        <table className="Table">
+        <table>
             <thead>
                 <tr>
                     <th>Beatbox Name</th>
