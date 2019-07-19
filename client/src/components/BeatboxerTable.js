@@ -23,7 +23,7 @@ export default class BeatboxersTable extends React.Component {
             <td>{beatboxer.beatbox_name}</td>
             <td>{beatboxer.city}</td>
             <td>{beatboxer.state}</td>
-            <td>{beatboxer.instagram_username}</td>
+            <a target="_blank" href={`https://instagram.com/${beatboxer.instagram_username}`}><td>{beatboxer.instagram_username}</td></a>
         </tr>
       });
     return (
