@@ -20,10 +20,10 @@ export default class BeatboxersTable extends React.Component {
       let tr;
       table_row = this.state.beatboxers.map((beatboxer, instagram_username) => {
         return <tr key = {instagram_username}>
-            <td>{beatboxer.beatbox_name}</td>
-            <td>{beatboxer.city}</td>
-            <td>{beatboxer.state}</td>
-            <a target="_blank" href={`https://instagram.com/${beatboxer.instagram_username}`}><td>{beatboxer.instagram_username}</td></a>
+            <td width="28%">{beatboxer.beatbox_name}</td>
+            <td width="28%">{beatboxer.city}</td>
+            <td width="15%">{beatboxer.state}</td>
+            <a target="_blank" href={`https://instagram.com/${beatboxer.instagram_username}`}><td width="29%">{beatboxer.instagram_username}</td></a>
         </tr>
       });
     return (
