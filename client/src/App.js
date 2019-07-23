@@ -3,7 +3,6 @@
 import React from 'react';
 import './App.css';
 import BeatboxerTable from './components/BeatboxerTable';
-// import logo from './logo.svg';
 
 class App extends React.Component {
    render() {
